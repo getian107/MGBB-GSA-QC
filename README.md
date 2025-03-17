@@ -2,7 +2,7 @@
 
 This repository details the quality control (QC) pipeline for the imputation data of MGB Biobank samples, which are genotyped on Illumina’s GSA array. The pipeline and parameter recommendations described here follow the guidelines provided in [this repository](https://github.com/getian107/MGBB-QC/), which details the QC pipeline for Illumina’s GSA genotyped data of MGB Biobank samples.
 
-The dataset includes the imputation data of 53,253 individuals in hg38 coordinates. The samples are initially genotyped on Illumina's GSA array in hg19 coordinates across 4 different batches (batches A to D). After imputation using TOPMed on Michigan server, data were converted from VCF dosages to PLINK hard-call genotypes. Post-imputation data from 4 batches were merged.
+The dataset includes the imputation data of 53,253 individuals in hg38 coordinates. The samples are initially genotyped on Illumina's GSA array in hg19 coordinates across 4 different batches (batches A to D). After imputation using the TOPMed reference panel on the Michigan server, data were converted from VCF dosages to PLINK hard-call genotypes. Post-imputation data from 4 batches were merged.
 
 ## Quality control pipeline
 
@@ -36,11 +36,11 @@ Samples are genotyped and imputed on 4 batches:
 
 ## Ancestry assignment
 
-We followed the the pipeline recommended by **POP-MaD** to perform ancestry assignment. 
+We followed the pipeline recommended by **POP-MaD** to perform ancestry assignment. 
 
 We only used the genotyped variants for the ancestry assignment. 
-- Since genotyped variants are in hg19 coordinates, we first used *LiftOver* to convert the coordinates from hg19 to hg38.
-- 4 batches' genotyped variant lists were merged (overlapping genotyped variants between 4 batches)
-- We extracted genotyped variants from post-QC imputation data by *PLINK*
+- Coordinate Conversion: Since genotyped variants are in hg19 coordinates, we first used *LiftOver* to convert the coordinates from hg19 to hg38.
+- Data Merging: Genotyped variant lists from 4 batches were merged (focusing on overlapping genotyped variants between 4 batches)
+- Variant Extraction: We extracted genotyped variants from the post-QC imputation data by *PLINK*
 
-The dataset includes 444067 variant info for 53253 individuals is used in the following ancestry assignment processes.
+The dataset includes 444067 variant info for 53253 individuals and is used in the following ancestry assignment processes.
