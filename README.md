@@ -1,6 +1,6 @@
 # MGBB-GSA-QC
 
-This repository details the quality control (QC) pipeline for the TOPMed imputated data of MGB Biobank samples. The dataset includes the imputated data of 53,253 individuals in hg38 coordinates. The samples are initially genotyped on Illumina's GSA array in hg19 coordinates across 4 different batches (batches A to D). After imputation using the TOPMed reference panel on the TOPMed imputation server, data were converted from VCF dosages to PLINK hard-call genotypes. Post-imputation data from 4 batches were merged.
+This repository details the quality control (QC) pipeline for the TOPMed imputated data of the MGB Biobank samples. The dataset includes the imputated data of 53,253 individuals in hg38 coordinates. The samples are initially genotyped on Illumina's GSA array in hg19 coordinates across 4 different batches (batches A to D). After imputation using the TOPMed reference panel on the TOPMed imputation server, data were converted from VCF dosages to PLINK hard-call genotypes. Post-imputation data from 4 batches were merged. The post-imputation QC parameters described here follow the guidelines provided in [this repository](https://github.com/getian107/MGBB-QC/).
 
 ## Quality control pipeline
 
