@@ -11,7 +11,8 @@ This repository details the quality control (QC) pipeline for the TOPMed imputat
   - HWE >1e-10
   - SNP-level call rate >0.95
   - Remove SNPs that show batch associations
-    - Regress each batch indicator (coded as 1 to 4) on SNPs, adjusting for sex (association P < 1e-4)
+    - Four independent GWAS were performed, with each analysis employing a binary coding scheme to compare one chip versus the remaining three chips, adjusting for sex (association P < 1e-4)
+    - Variants showing potential association with batch effect, as identified in each of the four GWAS, were subsequently pooled and removed for downstream analysis
 
 ## Summary of post-imputation QC
 
@@ -39,6 +40,9 @@ We followed the pipeline recommended by **POP-MaD** to perform ancestry assignme
 We only used the genotyped variants for the ancestry assignment. 
 - **Coordinate Conversion**: Since genotyped variants are in hg19 coordinates, we first used *LiftOver* to convert the coordinates from hg19 to hg38.
 - **Data Merging**: Genotyped variant lists from 4 batches were merged (focusing on overlapping genotyped variants between 4 batches).
-- **Variant Extraction**: We extracted genotyped variants from the post-QC imputation data by *PLINK*.
+- **Variant Extraction**: We extracted genotyped variants from the post-imputation data (the dataset qc'ed only using INFO score R2 > 0.6) by *PLINK*.
+- **Remove Batch effect**
+  - Four independent GWAS were performed, with each analysis employing a binary coding scheme to compare one chip versus the remaining three chips, adjusting for sex (association P < 1e-4)
+  - Variants showing potential association with batch effect, as identified in each of the four GWAS, were subsequently pooled and removed for downstream ancestry assignment analysis
 
 The dataset includes 444067 variant info for 53253 individuals and is used in the following ancestry assignment processes.
