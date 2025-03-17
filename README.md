@@ -38,7 +38,7 @@ We followed the pipeline recommended by **POP-MaD** to perform ancestry assignme
 
 We only used the genotyped variants for the ancestry assignment. 
 - **Coordinate Conversion**: Since genotyped variants are in hg19 coordinates, we first used *LiftOver* to convert the coordinates from hg19 to hg38.
-- **Data Merging**: Genotyped variant lists from 4 batches were merged (focusing on overlapping genotyped variants between 4 batches)
-- **Variant Extraction**: We extracted genotyped variants from the post-QC imputation data by *PLINK*
+- **Data Merging**: Genotyped variant lists from 4 batches were merged (focusing on overlapping genotyped variants between 4 batches).
+- **Variant Extraction**: We extracted genotyped variants from the post-QC imputation data by *PLINK*.
 
 The dataset includes 444067 variant info for 53253 individuals and is used in the following ancestry assignment processes.
