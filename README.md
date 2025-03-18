@@ -45,4 +45,12 @@ We only used the genotyped variants for the ancestry assignment.
   - Four independent GWAS were performed, with each analysis employing a binary coding scheme to compare one chip versus the remaining three chips, adjusting for sex (association P < 1e-4)
   - Variants showing potential association with batch effect, as identified in each of the four GWAS, were subsequently pooled and removed from downstream ancestry assignment analysis
 
-The dataset includes 444067 variant info for 53253 individuals and is used in the following ancestry assignment processes.
+### Variant Filter Results
+  
+  | Variant filter       | # Variants       | % Total       |
+  | --------- | --------- | --------- |
+  | Genotyped variants     | 637,836    | 100%     |
+  | Showing batch association (p < 1e-04)     | 54,714     | 8.58%     |
+  | ***Post-QC***        | 583,122 | 91.42%    |
+
+The dataset includes 583,122 variant info for 53,253 individuals and is used in the following ancestry assignment processes.
