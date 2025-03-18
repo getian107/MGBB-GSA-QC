@@ -54,3 +54,15 @@ We only used the genotyped variants for the ancestry assignment.
   | ***Post-QC***        | 583,122 | 91.42%    |
 
 The dataset includes 583,122 variant info for 53,253 individuals and is used in the following ancestry assignment processes.
+
+### Ancestry Assignment Results
+
+We calculated the Mahalanobis distance of each individual (w/ 10 PCs) from outlier-pruned ref panel pop (KGP_HGDP). 
+
+| SD       | AFR       | AMR       | CSA | EAS | EUR | MID | OCE | Unassigned |
+  | --------- | --------- | --------- | --------- | --------- |--------- |--------- |--------- |--------- |
+  | raw     |     |      |
+  | > 4     |     |      |
+  | > 3     |      |      |
+  | > 2        |  |     |
+  | > 1        |  |     |
