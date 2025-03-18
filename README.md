@@ -12,7 +12,7 @@ This repository details the quality control (QC) pipeline for the TOPMed imputat
   - SNP-level call rate >0.95
   - Remove SNPs that show batch associations
     - Four independent GWAS were performed, with each analysis employing a binary coding scheme to compare one chip versus the remaining three chips, adjusting for sex (association P < 1e-4)
-    - Variants showing potential association with batch effect, as identified in each of the four GWAS, were subsequently pooled and removed for downstream analysis
+    - Variants showing potential association with batch effect, as identified in each of the four GWAS, were subsequently pooled and removed from downstream analysis
 
 ## Summary of post-imputation QC
 
@@ -30,8 +30,8 @@ Samples are genotyped and imputed on 4 batches:
   | Call rate < 0.95     | 116,310,366     | 70.9%     |
   | HWE < 1e-10     | 3,329,462     | 2.0%     |
   | MAF < 0.5%     | 35,269,823     | 21.5%     |
-  | Showing batch association (p < 1e-04)     | 85,570     | 0.05%     |
-  | ***Post-QC***        | 8,939,925 | 5.55%    |
+  | Showing batch association (p < 1e-04)     | 283,068     | 0.17%     |
+  | ***Post-QC***        | 8,742,427 | 5.43%    |
 
 ## Ancestry assignment
 
@@ -43,6 +43,6 @@ We only used the genotyped variants for the ancestry assignment.
 - **Variant Extraction**: We extracted genotyped variants from the post-imputation data (the dataset qc'ed only using INFO score R2 > 0.6) by *PLINK*.
 - **Remove Batch effect**
   - Four independent GWAS were performed, with each analysis employing a binary coding scheme to compare one chip versus the remaining three chips, adjusting for sex (association P < 1e-4)
-  - Variants showing potential association with batch effect, as identified in each of the four GWAS, were subsequently pooled and removed for downstream ancestry assignment analysis
+  - Variants showing potential association with batch effect, as identified in each of the four GWAS, were subsequently pooled and removed from downstream ancestry assignment analysis
 
 The dataset includes 444067 variant info for 53253 individuals and is used in the following ancestry assignment processes.
