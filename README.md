@@ -20,7 +20,7 @@ Samples are genotyped and imputed on 4 batches:
 - Batch 0110: 13,126 samples
 - Batch 0111: 11,642 samples
 - Batch 0112: 5,972 samples
-- Batch 0113: 22,514 samples
+- Batch 0113: 22,513 samples
 
 ### Variant Filter Results
   
