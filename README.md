@@ -57,7 +57,7 @@ The dataset includes 583,122 variant info for 53,253 individuals and is used in 
 
 ### Ancestry Assignment Results
 
-We calculated the Mahalanobis distance of each individual (w/ 10 PCs) from outlier-pruned ref panel pop (KGP_HGDP). 
+We calculated the Mahalanobis distance of each individual (w/ 10 PCs) from outlier-pruned ref panel pop (KGP_HGDP) and filtered outliers by SD.
 
 | SD       | AFR       | AMR       | CSA | EAS | EUR | MID | OCE | Unassigned |
   | --------- | --------- | --------- | --------- | --------- |--------- |--------- |--------- |--------- |
