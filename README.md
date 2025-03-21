@@ -66,3 +66,24 @@ We calculated the Mahalanobis distance of each individual (w/ 10 PCs) from outli
   |  3     | 2253     | 4043     | 761 | 1001 | 43980 | 746 | 2 | 467 | 
   |  2        | 2143 | 3935    | 669 | 985 | 43769 | 744 | 2 | 1006 |
   |  1        | 1941  | 3419    | 535 | 961 | 40506 | 672 | 2 | 5217 |
+
+<table>
+  <tr>
+    <td>
+      <img src="https://github.com/user-attachments/assets/57f74dbe-d53b-4127-bbb0-75cb86ffadb0" width="500">
+    </td>
+    <td>
+      <img src="https://github.com/user-attachments/assets/1dd93ce2-dbe9-452d-9390-6bc492c867c1" width="500">
+    </td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>
+      <img src="https://github.com/user-attachments/assets/8acc1c4e-9618-41ae-90bc-504ff9209c9d" width="500">
+    </td>
+    <td>
+      <img src="https://github.com/user-attachments/assets/baafb1c2-4a9f-4ff4-99ad-0fb688119a8c" width="500">
+    </td>
+  </tr>
+</table>
