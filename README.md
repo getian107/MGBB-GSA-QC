@@ -8,7 +8,7 @@ The dataset includes the imputed data of 53,253 individuals in hg38 coordinates.
 
 ### MEGA dataset
 
-The dataset includes the imputed data of 36,369 individuals in hg38 coordinates. The samples are initially genotyped on Illumina's MEGA array in hg19 coordinates across 10 different batches (MEGA, MEGAEX1, MEGAEX2, MEGAEX3, MEG_A1_A, MEG_A1_B, MEG_C, MEG_D, MEG_E, and MEG_X1). After imputation using the TOPMed reference panel on the TOPMed imputation server, data were converted from VCF dosages to PLINK hard-call genotypes. Post-imputation data from 10 (8?) batches were merged. 
+The dataset includes the imputed data of 36,366 individuals in hg38 coordinates. The samples are initially genotyped on Illumina's MEGA array in hg19 coordinates across 10 different batches (MEGA, MEGAEX1, MEGAEX2, MEGAEX3, MEG_A1_A, MEG_A1_B, MEG_C, MEG_D, MEG_E, and MEG_X1). After imputation using the TOPMed reference panel on the TOPMed imputation server, data were converted from VCF dosages to PLINK hard-call genotypes. Post-imputation data from 10 (8?) batches were merged. 
 
 
 ## Quality control pipeline (applied to both GSA and MEGA)
@@ -46,9 +46,30 @@ Samples are genotyped and imputed on 4 batches:
 
 ### MEGA dataset
 
+Samples are genotyped and imputed on 10 batches:
+- Batch 0101: 4,916 samples
+- Batch 0102: 5,328 samples
+  * MEGAX1: 4,404 samples
+  * MEGAX2: 738 samples
+  * MEGAX3: 186 samples
+- Batch 0103: 4,774 samples
+- Batch 0104: 5,014 samples
+- Batch 0105: 5,488 samples
+- Batch 0106: 5,139 samples
+- Batch 0107: 4,842 samples
+- Batch 0108: 865 samples
+  
 #### Variant Filter Results
 
-
+  | Variant filter       | # Variants       | % Total       |
+  | --------- | --------- | --------- |
+  | INFO score/Imputation R2 >0.6     | 149,534,876    | 100%     |
+  | Call rate < 0.95     | 117,208,779     | 78.4%     |
+  | HWE < 1e-10     | 3,402,266     | 2.3%     |
+  | MAF < 0.5%     | 19,696,277     | 13.2%     |
+  | Showing batch association (p < 1e-04)     | 90,621     | 0.061%     |
+  | ***Post-QC***        | 9,136,933 | 6.04%    |
+  
 ## Ancestry assignment
 
 We followed the pipeline recommended by **POP-MaD** to perform ancestry assignment. 
@@ -79,11 +100,11 @@ We calculated the Mahalanobis distance of each individual (w/ 10 PCs) from outli
 
 | SD       | AFR       | AMR       | CSA | EAS | EUR | MID | OCE | Unassigned |
   | --------- | --------- | --------- | --------- | --------- |--------- |--------- |--------- |--------- |
-  | raw     | 2314    | 4115     | 774  | 1012 | 44280 | 756 | 2 | - |
-  |  4     | 2293    | 4078     | 770 | 1004 | 44056 | 747 | 2 | 303 |
-  |  3     | 2253     | 4043     | 761 | 1001 | 43980 | 746 | 2 | 467 | 
-  |  2        | 2143 | 3935    | 669 | 985 | 43769 | 744 | 2 | 1006 |
-  |  1        | 1941  | 3419    | 535 | 961 | 40506 | 672 | 2 | 5217 |
+  | raw     | 2,314    | 4,115     | 774  | 1,012 | 44,280 | 756 | 2 | - |
+  |  4     | 2,293    | 4,078     | 770 | 1,004 | 44,056 | 747 | 2 | 303 |
+  |  3     | 2,253     | 4,043     | 761 | 1,001 | 43,980 | 746 | 2 | 467 | 
+  |  2        | 2,143 | 3,935    | 669 | 985 | 43,769 | 744 | 2 | 1,006 |
+  |  1        | 1,941  | 3,419    | 535 | 961 | 40,506 | 672 | 2 | 5,217 |
 
 <table>
   <tr>
@@ -111,4 +132,20 @@ We calculated the Mahalanobis distance of each individual (w/ 10 PCs) from outli
 
 #### Variant Filter Results
 
+  | Variant filter       | # Variants       | % Total       |
+  | --------- | --------- | --------- |
+  | Genotyped variants     | 1,384,041    | 100%     |
+  | Showing batch association (p < 1e-04)     | 795,135     | 57.5%     |
+  | ***Post-QC***        | 588,906 | 42.5%    |
+
 #### Ancestry Assignment Results
+
+We calculated the Mahalanobis distance of each individual (w/ 10 PCs) from outlier-pruned ref panel pop (KGP_HGDP) and filtered outliers by SD.
+
+| SD       | AFR       | AMR       | CSA | EAS | EUR | MID | OCE | Unassigned |
+  | --------- | --------- | --------- | --------- | --------- |--------- |--------- |--------- |--------- |
+  | raw     | 2314    | 4115     | 774  | 1012 | 44280 | 756 | 2 | - |
+  |  4     | 2293    | 4078     | 770 | 1004 | 44056 | 747 | 2 | 303 |
+  |  3     | 2253     | 4043     | 761 | 1001 | 43980 | 746 | 2 | 467 | 
+  |  2        | 2143 | 3935    | 669 | 985 | 43769 | 744 | 2 | 1006 |
+  |  1        | 1941  | 3419    | 535 | 961 | 40506 | 672 | 2 | 5217 |
