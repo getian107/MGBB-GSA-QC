@@ -178,7 +178,7 @@ We calculated the Mahalanobis distance of each individual (w/ 10 PCs) from outli
 
 ### Overlapping samples between MEGA and GSA
 
-Among 24,577 overlapping samples between MEGA and GSA, 356 samples have inconsistent ancestry assignment (~ 1.4%). The confusion table below summarizes the inconsistent assignments.
+Among 24,577 overlapping samples between MEGA and GSA, 356 samples have inconsistent ancestry assignment (~1.4%). The confusion table below summarizes the inconsistent assignments.
 
 | MEGA       | GSA      | N |
 | --------- | --------- | --------- |
