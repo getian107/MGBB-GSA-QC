@@ -24,7 +24,7 @@ The MEGA and GSA datasets share 24,577 common samples. The MEGA and GSA datasets
   - SNP-level call rate >0.95
   - Remove SNPs that show batch associations
     - Independent GWAS were performed (4 for GSA and 10 for MEGA), with each analysis employing a binary coding scheme to compare one batch versus the remaining batches, adjusting for sex
-    - Variants showing potential association with batch effect (association P < 1e-4), as identified in each of the independent GWAS (4 for GSA and 10 for MEGA), were subsequently pooled and removed from downstream analysis
+    - Variants showing potential batch effects (association P < 1e-4), as identified in each of the independent GWAS (4 for GSA and 10 for MEGA), were subsequently pooled and removed from downstream analysis
 
 ## Summary of post-imputation QC
 
@@ -83,7 +83,7 @@ We only used the genotyped variants for ancestry assignment.
 - **Variant Extraction**: We extracted genotyped variants from the post-imputation data (the dataset qc'ed only using INFO score R2 > 0.6) by *PLINK*.
 - **Remove Batch effect**
   - Independent GWAS were performed (4 for GSA and 10 for MEGA), with each analysis employing a binary coding scheme to compare one batch versus the remaining batches, adjusting for sex 
-  - Variants showing potential association with batch effect (association P < 1e-4), as identified in each of the independent GWAS (4 for GSA and 10 for MEGA), were subsequently pooled and removed from downstream ancestry assignment analysis
+  - Variants showing potential batch effects (association P < 1e-4), as identified in each of the independent GWAS (4 for GSA and 10 for MEGA), were subsequently pooled and removed from downstream ancestry assignment analysis
 
 ### GSA dataset
 
