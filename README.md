@@ -23,7 +23,7 @@ The MEGA and GSA datasets share 24,577 common samples. The MEGA and GSA datasets
   - HWE >1e-10
   - SNP-level call rate >0.95
   - Remove SNPs that show batch associations
-    - Independent GWAS were performed (4 for GSA and 10 for MEGA), with each analysis employing a binary coding scheme to compare one chip versus the remaining chips, adjusting for sex
+    - Independent GWAS were performed (4 for GSA and 10 for MEGA), with each analysis employing a binary coding scheme to compare one batch versus the remaining batches, adjusting for sex
     - Variants showing potential association with batch effect (association P < 1e-4), as identified in each of the independent GWAS (4 for GSA and 10 for MEGA), were subsequently pooled and removed from downstream analysis
 
 ## Summary of post-imputation QC
@@ -77,13 +77,13 @@ Samples are genotyped and imputed on 10 batches:
 
 We followed the pipeline recommended by **POP-MaD** to perform ancestry assignment. 
 
-We only used the genotyped variants for the ancestry assignment. 
-- **Coordinate Conversion**: Since genotyped variants are in hg19 coordinates, we first used *LiftOver* to convert the coordinates from hg19 to hg38.
-- **Data Merging**: Genotyped variant lists from independent batches were merged (focusing on overlapping genotyped variants between batches, 4 batches for GSA and 10 for MEGA).
+We only used the genotyped variants for ancestry assignment. 
+- **Coordinate Conversion**: We used *LiftOver* to convert the coordinates from hg19 to hg38.
+- **Data Merging**: Genotyped variant lists from independent batches were merged (focusing on overlapping genotyped variants between batches; 4 for GSA and 10 for MEGA).
 - **Variant Extraction**: We extracted genotyped variants from the post-imputation data (the dataset qc'ed only using INFO score R2 > 0.6) by *PLINK*.
 - **Remove Batch effect**
-  - Independent GWAS were performed (4 for GSA and 10 for MEGA), with each analysis employing a binary coding scheme to compare one chip versus the remaining three chips, adjusting for sex (association P < 1e-4)
-  - Variants showing potential association with batch effect, as identified in each of the independent GWAS (4 for GSA and 10 for MEGA), were subsequently pooled and removed from downstream ancestry assignment analysis
+  - Independent GWAS were performed (4 for GSA and 10 for MEGA), with each analysis employing a binary coding scheme to compare one batch versus the remaining batches, adjusting for sex 
+  - Variants showing potential association with batch effect (association P < 1e-4), as identified in each of the independent GWAS (4 for GSA and 10 for MEGA), were subsequently pooled and removed from downstream ancestry assignment analysis
 
 ### GSA dataset
 
