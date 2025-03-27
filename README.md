@@ -23,8 +23,8 @@ The MEGA and GSA datasets share 24,577 common samples. The MEGA and GSA datasets
   - HWE >1e-10
   - SNP-level call rate >0.95
   - Remove SNPs that show batch associations
-    - Independent GWAS were performed (4 for GSA and 10 for MEGA), with each analysis employing a binary coding scheme to compare one chip versus the remaining chips, adjusting for sex (association P < 1e-4)
-    - Variants showing potential association with batch effect, as identified in each of the independent GWAS (4 for GSA and 10 for MEGA), were subsequently pooled and removed from downstream analysis
+    - Independent GWAS were performed (4 for GSA and 10 for MEGA), with each analysis employing a binary coding scheme to compare one chip versus the remaining chips, adjusting for sex
+    - Variants showing potential association with batch effect (association P < 1e-4), as identified in each of the independent GWAS (4 for GSA and 10 for MEGA), were subsequently pooled and removed from downstream analysis
 
 ## Summary of post-imputation QC
 
