@@ -8,8 +8,9 @@ The dataset includes the imputed data of 53,253 individuals in hg38 coordinates.
 
 ### MEGA dataset
 
-The dataset includes the imputed data of 36,366 individuals in hg38 coordinates. The samples are initially genotyped on Illumina's MEGA array in hg19 coordinates across 10 different batches (MEGA, MEGAEX1, MEGAEX2, MEGAEX3, MEG_A1_A, MEG_A1_B, MEG_C, MEG_D, MEG_E, and MEG_X1). After imputation using the TOPMed reference panel on the TOPMed imputation server, data were converted from VCF dosages to PLINK hard-call genotypes. Post-imputation data from 10 (8?) batches were merged. 
+The dataset includes the imputed data of 36,366 individuals in hg38 coordinates. The samples are initially genotyped on Illumina's MEGA array in hg19 coordinates across 10 (**8?**) different batches (MEGA, MEGAEX1, MEGAEX2, MEGAEX3, MEG_A1_A, MEG_A1_B, MEG_C, MEG_D, MEG_E, and MEG_X1). After imputation using the TOPMed reference panel on the TOPMed imputation server, data were converted from VCF dosages to PLINK hard-call genotypes. Post-imputation data from 10 (**8?**) batches were merged. 
 
+The MEGA and GSA datasets share 24,577 common samples. The MEGA and GSA datasets were not merged because their variant calling sites were highly inconsistent.
 
 ## Quality control pipeline (applied to both GSA and MEGA)
 
@@ -138,14 +139,65 @@ We calculated the Mahalanobis distance of each individual (w/ 10 PCs) from outli
   | Showing batch association (p < 1e-04)     | 795,135     | 57.5%     |
   | ***Post-QC***        | 588,906 | 42.5%    |
 
+The dataset includes 588,906 variant info for 36,366 individuals and is used in the following ancestry assignment processes.
+
 #### Ancestry Assignment Results
 
 We calculated the Mahalanobis distance of each individual (w/ 10 PCs) from outlier-pruned ref panel pop (KGP_HGDP) and filtered outliers by SD.
 
-| SD       | AFR       | AMR       | CSA | EAS | EUR | MID | OCE | Unassigned |
-  | --------- | --------- | --------- | --------- | --------- |--------- |--------- |--------- |--------- |
-  | raw     | 2314    | 4115     | 774  | 1012 | 44280 | 756 | 2 | - |
-  |  4     | 2293    | 4078     | 770 | 1004 | 44056 | 747 | 2 | 303 |
-  |  3     | 2253     | 4043     | 761 | 1001 | 43980 | 746 | 2 | 467 | 
-  |  2        | 2143 | 3935    | 669 | 985 | 43769 | 744 | 2 | 1006 |
-  |  1        | 1941  | 3419    | 535 | 961 | 40506 | 672 | 2 | 5217 |
+| SD       | AFR       | AMR       | CSA | EAS | EUR | MID  | Unassigned |
+  | --------- | --------- | --------- | --------- | --------- |--------- |--------- |--------- |
+  | raw     | 1,683 | 3,138  | 463 |  530 | 30,096 |  459 | - |
+  |  4     | 1,664   |    3,121    |    460     |   521  |    29,941    |    456    |    206 |
+  |  3     | 1,626    |   3,108      |  455    |    513   |   29,334    |    454    |    879 | 
+  |  2        | 1,553   |    3,070    |    436   |     507   |   27,366   |     443   |    2,994 |
+  |  1        | 1,421   |   2,775      |  324     |   489    |  25,275    |    367     |  5,718 |
+
+<table>
+  <tr>
+    <td>
+      <img src="https://github.com/user-attachments/assets/ac9ac429-038c-4b3b-8540-c89475f71405" width="500">
+    </td>
+    <td>
+      <img src="https://github.com/user-attachments/assets/e623d1d9-adee-4c59-b84a-032929bd62ee" width="500">
+    </td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>
+      <img src="https://github.com/user-attachments/assets/c6a92613-bd46-4bcf-9361-bc3be47fe8de" width="500">
+    </td>
+    <td>
+      <img src="https://github.com/user-attachments/assets/85cdb099-2c4d-4473-ada7-f438726cd0c1" width="500">
+    </td>
+  </tr>
+</table>
+
+### Overlapping samples between MEGA and GSA
+
+Among 24,577 overlapping samples between MEGA and GSA, 356 samples have inconsistent ancestry assignment (~ 1.4%). The confusion table below summarizes the inconsistent assignments.
+
+| MEGA       | GSA      | N |
+| --------- | --------- | --------- |
+|AFR |AMR   |                    9|
+|AFR| EUR     |                  3|
+|**AMR** |**AFR**      |                **40**|
+|AMR|CSA                      | 1|
+|AMR | EAS                      | 1|
+|**AMR**|**EUR**                     | **18**|
+|CSA|EAS                     |  1|
+|CSA|EUR                      | 1|
+|EAS|AMR                     |  1|
+|EAS|EUR                     |  2|
+|EUR|AFR                     |  2|
+|**EUR**|**AMR**                    | **219**|
+|EUR|CSA                      | 9|
+|EUR|EAS                      | 3|
+|EUR|MID                      | 7|
+|MID|AMR                      | 9|
+|MID|CSA                      | 4|
+|**MID**|**EUR**                     | **26**|
+
+
+
