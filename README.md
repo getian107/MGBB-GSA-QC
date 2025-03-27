@@ -1,8 +1,17 @@
-# MGBB-GSA-QC
+# MGBB-(GSA and MEGA)-QC
 
-This repository details the quality control (QC) pipeline for the TOPMed imputated data of the MGB Biobank samples. The dataset includes the imputated data of 53,253 individuals in hg38 coordinates. The samples are initially genotyped on Illumina's GSA array in hg19 coordinates across 4 different batches (batches A to D). After imputation using the TOPMed reference panel on the TOPMed imputation server, data were converted from VCF dosages to PLINK hard-call genotypes. Post-imputation data from 4 batches were merged. The post-imputation QC parameters described here follow the guidelines provided in [this repository](https://github.com/getian107/MGBB-QC/).
+This repository details the quality control (QC) pipeline for the TOPMed imputed data of the MGB Biobank samples. The post-imputation QC parameters described here follow the guidelines provided in [this repository](https://github.com/getian107/MGBB-QC/).
 
-## Quality control pipeline
+### GSA dataset
+
+The dataset includes the imputed data of 53,253 individuals in hg38 coordinates. The samples are initially genotyped on Illumina's GSA array in hg19 coordinates across 4 different batches (batches A to D). After imputation using the TOPMed reference panel on the TOPMed imputation server, data were converted from VCF dosages to PLINK hard-call genotypes. Post-imputation data from 4 batches were merged. 
+
+### MEGA dataset
+
+The dataset includes the imputed data of 36,369 individuals in hg38 coordinates. The samples are initially genotyped on Illumina's MEGA array in hg19 coordinates across 10 different batches (MEGA, MEGAEX1, MEGAEX2, MEGAEX3, MEG_A1_A, MEG_A1_B, MEG_C, MEG_D, MEG_E, and MEG_X1). After imputation using the TOPMed reference panel on the TOPMed imputation server, data were converted from VCF dosages to PLINK hard-call genotypes. Post-imputation data from 10 (8?) batches were merged. 
+
+
+## Quality control pipeline (applied to both GSA and MEGA)
 
 - Post-imputation QC (with *PLINK*)
 
@@ -11,10 +20,12 @@ This repository details the quality control (QC) pipeline for the TOPMed imputat
   - HWE >1e-10
   - SNP-level call rate >0.95
   - Remove SNPs that show batch associations
-    - Four independent GWAS were performed, with each analysis employing a binary coding scheme to compare one chip versus the remaining three chips, adjusting for sex (association P < 1e-4)
-    - Variants showing potential association with batch effect, as identified in each of the four GWAS, were subsequently pooled and removed from downstream analysis
+    - Independent GWAS were performed (4 for GSA and 10 for MEGA), with each analysis employing a binary coding scheme to compare one chip versus the remaining three chips, adjusting for sex (association P < 1e-4)
+    - Variants showing potential association with batch effect, as identified in each of the independent GWAS (4 for GSA and 10 for MEGA), were subsequently pooled and removed from downstream analysis
 
 ## Summary of post-imputation QC
+
+### GSA dataset
 
 Samples are genotyped and imputed on 4 batches:
 - Batch 0110: 13,126 samples
@@ -22,7 +33,7 @@ Samples are genotyped and imputed on 4 batches:
 - Batch 0112: 5,972 samples
 - Batch 0113: 22,513 samples
 
-### Variant Filter Results
+#### Variant Filter Results
   
   | Variant filter       | # Variants       | % Total       |
   | --------- | --------- | --------- |
@@ -33,19 +44,26 @@ Samples are genotyped and imputed on 4 batches:
   | Showing batch association (p < 1e-04)     | 283,068     | 0.17%     |
   | ***Post-QC***        | 8,742,427 | 5.43%    |
 
+### MEGA dataset
+
+#### Variant Filter Results
+
+
 ## Ancestry assignment
 
 We followed the pipeline recommended by **POP-MaD** to perform ancestry assignment. 
 
 We only used the genotyped variants for the ancestry assignment. 
 - **Coordinate Conversion**: Since genotyped variants are in hg19 coordinates, we first used *LiftOver* to convert the coordinates from hg19 to hg38.
-- **Data Merging**: Genotyped variant lists from 4 batches were merged (focusing on overlapping genotyped variants between 4 batches).
+- **Data Merging**: Genotyped variant lists from independent batches were merged (focusing on overlapping genotyped variants between batches, 4 batches for GSA and 10 for MEGA).
 - **Variant Extraction**: We extracted genotyped variants from the post-imputation data (the dataset qc'ed only using INFO score R2 > 0.6) by *PLINK*.
 - **Remove Batch effect**
-  - Four independent GWAS were performed, with each analysis employing a binary coding scheme to compare one chip versus the remaining three chips, adjusting for sex (association P < 1e-4)
-  - Variants showing potential association with batch effect, as identified in each of the four GWAS, were subsequently pooled and removed from downstream ancestry assignment analysis
+  - Independent GWAS were performed (4 for GSA and 10 for MEGA), with each analysis employing a binary coding scheme to compare one chip versus the remaining three chips, adjusting for sex (association P < 1e-4)
+  - Variants showing potential association with batch effect, as identified in each of the independent GWAS (4 for GSA and 10 for MEGA), were subsequently pooled and removed from downstream ancestry assignment analysis
 
-### Variant Filter Results
+### GSA dataset
+
+#### Variant Filter Results
   
   | Variant filter       | # Variants       | % Total       |
   | --------- | --------- | --------- |
@@ -55,7 +73,7 @@ We only used the genotyped variants for the ancestry assignment.
 
 The dataset includes 583,122 variant info for 53,253 individuals and is used in the following ancestry assignment processes.
 
-### Ancestry Assignment Results
+#### Ancestry Assignment Results
 
 We calculated the Mahalanobis distance of each individual (w/ 10 PCs) from outlier-pruned ref panel pop (KGP_HGDP) and filtered outliers by SD.
 
@@ -87,3 +105,10 @@ We calculated the Mahalanobis distance of each individual (w/ 10 PCs) from outli
     </td>
   </tr>
 </table>
+
+
+### MEGA dataset
+
+#### Variant Filter Results
+
+#### Ancestry Assignment Results
