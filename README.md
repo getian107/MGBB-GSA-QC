@@ -10,6 +10,8 @@ The dataset includes the imputed data of 53,253 individuals in hg38 coordinates.
 
 The dataset includes the imputed data of 36,366 individuals in hg38 coordinates. The samples are initially genotyped on Illumina's MEGA array in hg19 coordinates across 10 different batches (MEGA, MEGAEX1, MEGAEX2, MEGAEX3, MEG_A1_A, MEG_A1_B, MEG_C, MEG_D, MEG_E, and MEG_X1). After imputation using the TOPMed reference panel on the TOPMed imputation server, data were converted from VCF dosages to PLINK hard-call genotypes. Post-imputation data from 10 batches were merged. 
 
+### Sample overlap
+
 The MEGA and GSA datasets share 24,577 common samples. The MEGA and GSA datasets were not merged because their variant calling sites were highly inconsistent.
 
 ## Quality control pipeline (applied to both GSA and MEGA)
