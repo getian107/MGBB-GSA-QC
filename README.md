@@ -95,7 +95,7 @@ We only used the genotyped variants for ancestry assignment.
   | Showing batch association (p < 1e-04)     | 54,714     | 8.58%     |
   | ***Post-QC***        | 583,122 | 91.42%    |
 
-The dataset includes 583,122 variant info for 53,253 individuals and is used in the following ancestry assignment processes.
+The dataset includes 583,122 variants for 53,253 individuals and is used in ancestry assignment.
 
 #### Ancestry Assignment Results
 
@@ -141,7 +141,7 @@ We calculated the Mahalanobis distance of each individual (w/ 10 PCs) from outli
   | Showing batch association (p < 1e-04)     | 795,135     | 57.5%     |
   | ***Post-QC***        | 588,906 | 42.5%    |
 
-The dataset includes 588,906 variant info for 36,366 individuals and is used in the following ancestry assignment processes.
+The dataset includes 588,906 variants for 36,366 individuals and is used in ancestry assignment.
 
 #### Ancestry Assignment Results
 
